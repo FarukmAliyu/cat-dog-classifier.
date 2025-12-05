@@ -1,6 +1,6 @@
-# requirements.txt
-tensorflow==2.16.1  # Specify a stable version
-keras
+tensorflow
 streamlit
+gdown
 numpy
-Pillow
+pillow
+opencv-python
