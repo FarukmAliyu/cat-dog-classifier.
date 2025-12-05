@@ -1,0 +1,6 @@
+# requirements.txt
+tensorflow==2.16.1  # Specify a stable version
+keras
+streamlit
+numpy
+Pillow
