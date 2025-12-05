@@ -1,7 +1,6 @@
-# app.py
 import os
 import streamlit as st
-import gdown
+import requests
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 import numpy as np
@@ -11,16 +10,21 @@ from PIL import Image
 # Step 1: Model Download Setup
 # -------------------------------
 
-# Replace YOUR_FILE_ID_HERE with the ID from your Google Drive link
-MODEL_FILE_ID = "YOUR_FILE_ID_HERE"
-MODEL_URL = f"https://drive.google.com/uc?id={MODEL_FILE_ID}"
+# Replace this with your direct download link (any public URL, e.g., Dropbox or Google Drive via "get link")
+MODEL_URL = "YOUR_PUBLIC_DOWNLOAD_LINK_HERE"
 MODEL_PATH = "cat_dog_model.h5"
 
-# Download the model if it doesn't exist
-if not os.path.exists(MODEL_PATH):
-    st.write("Downloading model...")
-    gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
-    st.write("Model downloaded successfully!")
+def download_model(url, path):
+    if not os.path.exists(path):
+        st.write("Downloading model...")
+        response = requests.get(url, stream=True)
+        with open(path, "wb") as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                if chunk:
+                    f.write(chunk)
+        st.write("Model downloaded successfully!")
+
+download_model(MODEL_URL, MODEL_PATH)
 
 # Load the model
 model = tf.keras.models.load_model(MODEL_PATH)
