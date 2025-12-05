@@ -1,7 +1,7 @@
-
+# app.py
 import os
 import streamlit as st
-import gdown  # Make sure gdown is in requirements.txt
+import gdown
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 import numpy as np
@@ -11,8 +11,9 @@ from PIL import Image
 # Step 1: Model Download Setup
 # -------------------------------
 
-# Replace this with your public Google Drive link
-MODEL_URL = "YOUR_GOOGLE_DRIVE_DIRECT_DOWNLOAD_LINK"
+# Replace YOUR_FILE_ID_HERE with the ID from your Google Drive link
+MODEL_FILE_ID = "YOUR_FILE_ID_HERE"
+MODEL_URL = f"https://drive.google.com/uc?id={MODEL_FILE_ID}"
 MODEL_PATH = "cat_dog_model.h5"
 
 # Download the model if it doesn't exist
