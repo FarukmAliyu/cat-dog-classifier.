@@ -11,7 +11,7 @@ from PIL import Image
 # -------------------------------
 
 # Replace this with your direct download link (any public URL, e.g., Dropbox or Google Drive via "get link")
-MODEL_URL = "YOUR_PUBLIC_DOWNLOAD_LINK_HERE"
+MODEL_URL = "https://drive.google.com/uc?export=download&id=1A2B3C4D5E6F7G8"
 MODEL_PATH = "cat_dog_model.h5"
 
 def download_model(url, path):
